@@ -886,7 +886,8 @@ h2 {
 
   .widget-feature {
     position: relative;
-    min-height: 70svh;
+    gap: 28px;
+    min-height: auto;
     overflow: hidden;
     padding-block: 48px 0;
   }
@@ -898,17 +899,17 @@ h2 {
   }
 
   .widget-image {
-    position: absolute;
-    right: 0;
-    bottom: -72px;
-    left: 0;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
     margin-top: 0;
     z-index: 0;
   }
 
   .widget-image img {
-    width: min(100%, 660px);
-    max-height: 64svh;
+    width: min(100%, 560px);
+    max-height: 58svh;
     margin-inline: auto;
   }
 
