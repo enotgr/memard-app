@@ -590,6 +590,12 @@ h2 {
   line-height: 1.14;
 }
 
+.policy h3 {
+  margin: 30px 0 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
 .policy p {
   margin-top: 16px;
   color: #596166;
@@ -599,6 +605,30 @@ h2 {
 .policy a {
   color: #1484e8;
   font-weight: 700;
+}
+
+.support-contact {
+  display: grid;
+  gap: 8px;
+  margin: 34px 0 44px;
+  padding: 24px;
+  border: 1px solid rgba(17, 19, 21, 0.09);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.support-contact span {
+  color: #596166;
+  font-size: 14px;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.support-contact a {
+  width: fit-content;
+  font-size: clamp(20px, 4vw, 28px);
+  line-height: 1.16;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 1360px) and (min-width: 981px) {

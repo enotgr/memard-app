@@ -19,6 +19,7 @@ const currentYear = new Date().getFullYear();
 
 function App() {
   const [route, setRoute] = useState(getRoute());
+  const isPolicyRoute = route === '/privacy' || route === '/support';
 
   useEffect(() => {
     const handleHashChange = () => setRoute(getRoute());
@@ -35,9 +36,11 @@ function App() {
   }, [route]);
 
   return (
-    <div className={route === '/privacy' ? 'app-shell privacy-page' : 'app-shell'}>
+    <div className={isPolicyRoute ? 'app-shell privacy-page' : 'app-shell'}>
       <Header />
-      <main>{route === '/privacy' ? <PrivacyPolicy /> : <Home />}</main>
+      <main>
+        {route === '/privacy' ? <PrivacyPolicy /> : route === '/support' ? <Support /> : <Home />}
+      </main>
       <Footer />
     </div>
   );
@@ -293,6 +296,53 @@ function PrivacyPolicy() {
   );
 }
 
+function Support() {
+  return (
+    <article className="policy support">
+      <p className="eyebrow">Support</p>
+      <h1>Memard Support</h1>
+      <p>
+        Need help with Memard? Send us a message and include the device model,
+        iOS version, and a short description of what happened
+      </p>
+
+      <div className="support-contact">
+        <span>Email support</span>
+        <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
+      </div>
+
+      <h2>Common Questions</h2>
+
+      <h3>Where is my card content stored?</h3>
+      <p>
+        Your collections and cards are stored locally on your device. Memard
+        does not require an account and does not sync card content to our
+        servers
+      </p>
+
+      <h3>How do I delete cards or collections?</h3>
+      <p>
+        Open the collection in Memard and use the editing controls to remove
+        cards you no longer need. You can also delete a collection from the
+        collections screen
+      </p>
+
+      <h3>How does the widget choose cards?</h3>
+      <p>
+        The Home Screen widget shows cards from the collection you selected in
+        the app. If the widget looks out of date, open Memard once and check
+        that the selected collection still has cards
+      </p>
+
+      <h3>How do I report a bug?</h3>
+      <p>
+        Email us with the steps that led to the issue, screenshots if helpful,
+        and whether it happens every time or only occasionally
+      </p>
+    </article>
+  );
+}
+
 function Footer() {
   return (
     <footer className="site-footer">
@@ -301,7 +351,7 @@ function Footer() {
         <span>Memard</span>
       </span>
       <div className="footer-links">
-        <a href={`mailto:${supportEmail}`}>Support: {supportEmail}</a>
+        <a href="#/support">Support</a>
         <a href="#/privacy">Privacy Policy</a>
       </div>
       <span className="footer-copy">© {currentYear} Memard. All rights reserved</span>
